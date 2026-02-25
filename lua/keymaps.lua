@@ -52,6 +52,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- NOTE: Custom keymaps are here
+-- Creates a vertical split in the screen
 vim.keymap.set('n', '<leader>v', ':vsplit<CR>', { noremap = true, silent = true, desc = 'Split the screen vertically' })
+
+-- Scratch.nvim commands
+vim.keymap.set('n', '<M-C-n>', '<cmd>Scratch<cr>')
+vim.keymap.set('n', '<M-C-o>', '<cmd>ScratchOpen<cr>')
 
 -- vim: ts=2 sts=2 sw=2 et
