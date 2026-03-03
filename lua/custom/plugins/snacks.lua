@@ -43,5 +43,8 @@ return {
     zen = {
       opts = {},
     },
+    terminal = {
+      opts = {},
+    },
   },
 }

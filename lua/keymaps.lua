@@ -52,11 +52,30 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- NOTE: Custom keymaps are here
--- Creates a vertical split in the screen
-vim.keymap.set('n', '<leader>v', ':vsplit<CR>', { noremap = true, silent = true, desc = 'Split the screen vertically' })
 
--- Scratch.nvim commands
-vim.keymap.set('n', '<M-C-n>', '<cmd>Scratch<cr>')
-vim.keymap.set('n', '<M-C-o>', '<cmd>ScratchOpen<cr>')
+-- Utility Extras
+vim.keymap.set('n', '<leader>v', ':vsplit<CR>', { noremap = true, silent = true, desc = 'Split the screen vertically' })
+vim.keymap.set('n', '<leader>w', ':ww<CR>', { desc = 'Write' })
+vim.keymap.set('n', '<leader>wq', ':wq<CR>', { desc = 'Write and Quit' })
+
+-- Scratch.nvim Commands
+vim.keymap.set('n', '<leader>nc', '<cmd>Scratch<cr>', { desc = 'Create a new Scratch file' })
+vim.keymap.set('n', '<leader>no', '<cmd>ScratchOpen<cr>', { desc = 'Open an existing Scratch file' })
+vim.keymap.set('n', '<leader>ns', '<cmd>ScratchOpenFzf<cr>', { desc = 'Fuzzy search all Scratch files' })
+
+-- Neorg Commands
+vim.keymap.set('n', 'g0', '<cmd>Neorg toc<CR>', { desc = 'Create a Table of Contents' })
+
+-- Snacks.Terminal Commands
+vim.keymap.set({ 'n' }, '<leader>tt', function()
+  Snacks.terminal.toggle(nil, {
+    win = {
+      position = 'bottom',
+      height = 0.4,
+      border = 'rounded',
+    },
+    cwd = vim.fn.getcwd(), -- Use current working directory
+  })
+end, { desc = 'Toggle Terminal' })
 
 -- vim: ts=2 sts=2 sw=2 et
