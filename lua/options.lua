@@ -69,9 +69,12 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
+-- NOTE: Custom user changed ideas
 vim.opt.tabstop = 4 -- A TAB character looks like 4 spaces
 vim.opt.shiftwidth = 4 -- Number of spaces inserted when indenting
 vim.opt.expandtab = true -- Pressing the TAB key will insert spaces instead of a TAB character
 vim.opt.softtabstop = 4 -- Number of spaces to use for each step of (auto)indent
+
+vim.opt.shell = '/bin/fish'
 
 -- vim: ts=2 sts=2 sw=2 et

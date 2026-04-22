@@ -55,8 +55,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- Utility Extras
 vim.keymap.set('n', '<leader>v', ':vsplit<CR>', { noremap = true, silent = true, desc = 'Split the screen vertically' })
-vim.keymap.set('n', '<leader>w', ':ww<CR>', { desc = 'Write' })
+vim.keymap.set('n', '<leader>ww', ':w<CR>', { desc = 'Write' })
 vim.keymap.set('n', '<leader>wq', ':wq<CR>', { desc = 'Write and Quit' })
+vim.keymap.set('n', '<leader>d', ':lua vim.diagnostic.open_float()<CR>', { desc = 'Open the diagnostic under the cursor' })
 
 -- Scratch.nvim Commands
 vim.keymap.set('n', '<leader>nc', '<cmd>Scratch<cr>', { desc = 'Create a new Scratch file' })
@@ -64,18 +65,11 @@ vim.keymap.set('n', '<leader>no', '<cmd>ScratchOpen<cr>', { desc = 'Open an exis
 vim.keymap.set('n', '<leader>ns', '<cmd>ScratchOpenFzf<cr>', { desc = 'Fuzzy search all Scratch files' })
 
 -- Neorg Commands
+-- TODO: Probably need a few more, or at least need to document where they are
 vim.keymap.set('n', 'g0', '<cmd>Neorg toc<CR>', { desc = 'Create a Table of Contents' })
 
--- Snacks.Terminal Commands
-vim.keymap.set({ 'n' }, '<leader>tt', function()
-  Snacks.terminal.toggle(nil, {
-    win = {
-      position = 'bottom',
-      height = 0.4,
-      border = 'rounded',
-    },
-    cwd = vim.fn.getcwd(), -- Use current working directory
-  })
-end, { desc = 'Toggle Terminal' })
+-- ToggleTerm Commands
+--        maps.n["<Leader>tv"] = { "<Cmd>ToggleTerm size=80 direction=vertical<CR>", desc = "ToggleTerm vertical split" }
+vim.keymap.set('n', '<leader>tv', '<cmd>ToggleTerm size=80 direction=vertical<CR>', { desc = 'ToggleTerm vertical split' })
 
 -- vim: ts=2 sts=2 sw=2 et
